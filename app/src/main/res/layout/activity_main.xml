@@ -4,15 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@android:color/darker_gray"
+    android:padding="5dp"
+    tools:ignore="HardcodedText">
+
+    <EditText
+        android:id="@+id/mock_vpn_domain_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:hint="api.line-beta.me"
+        android:text="test.local"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/mock_vpn_result_container"
+        app:layout_constraintEnd_toStartOf="@id/mock_vpn_domain_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mock_vpn_domain_btn"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:text="Test"
+        app:layout_constraintBottom_toBottomOf="@id/mock_vpn_domain_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mock_vpn_domain_input" />
+
+    <ScrollView
+        android:id="@+id/mock_vpn_result_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/background_dark"
+        android:minHeight="100dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/mock_vpn_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mock_vpn_domain_input">
+
+        <TextView
+            android:id="@+id/mock_vpn_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="Foobar" />
+    </ScrollView>
 
     <TextView
+        android:id="@+id/mock_vpn_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Run VPN for changing DNS?"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <EditText
+        android:id="@+id/mock_vpn_dns_server_ip_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="input DNS server ip. ie: 192.168.42.1"
+        android:text="192.168.142.102"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mock_vpn_description" />
+
+    <Button
+        android:id="@+id/mock_vpn_btn_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minWidth="50dp"
+        android:padding="10dp"
+        android:text="Start"
+        app:layout_constraintEnd_toStartOf="@id/mock_vpn_btn_stop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mock_vpn_dns_server_ip_input" />
+
+    <Button
+        android:id="@+id/mock_vpn_btn_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:minWidth="50dp"
+        android:padding="10dp"
+        android:text="Stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mock_vpn_btn_start"
+        app:layout_constraintTop_toTopOf="@id/mock_vpn_btn_start" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
